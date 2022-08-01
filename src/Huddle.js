@@ -116,7 +116,10 @@ function Main(props) {
                 </Table.Cell>
                 <Table.Cell width={3} textAlign="center">
                   <span style={{ display: 'inline-block', minWidth: '28em' }}>
-                    {hex2a(h.socialProof)}
+                    {hex2a(h.socialProof).startsWith("https://") || hex2a(h.socialProof).startsWith("http://") ?
+                      <a href={hex2a(h.socialProof)} target="_blank">{hex2a(h.socialProof)}</a> :
+                      hex2a(h.socialProof)
+                    }
                   </span>
                 </Table.Cell>
               </Table.Row>
